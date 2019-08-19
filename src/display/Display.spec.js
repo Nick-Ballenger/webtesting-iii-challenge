@@ -2,6 +2,7 @@
 import {render} from "react-testing-library";
 import React from "react"; 
 import "jest-dom/extend-expect";
+import renderer from 'react-test-renderer';
 import 'react-testing-library/cleanup-after-each';
 
 
@@ -68,3 +69,14 @@ describe("display light tests", () => {
   });
 
 })
+
+
+describe('<Display />', () => {
+    // 2. write this test
+    it.skip('matches snapshot', () => {
+      const tree = renderer.create(<Display />); // generates a DOM tree
+  
+      // snapshots are a JSON representation of the DOM tree
+      expect(tree.toJSON()).toMatchSnapshot();
+    });
+  });
